@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXBadge?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane fx:id="mainPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+  <tabs>
+    <Tab id="LoginTab" fx:id="singInTab" closable="false" text="Sing In">
+      <content>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="595.0" minWidth="800.0" prefHeight="595.0" prefWidth="800.0" style="-fx-background-color: #63BAA7; -fx-border-width: 0;">
+               <children>
+                  <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #3C9B86;">
+                     <children>
+                        <Label prefWidth="429.0" text="Twój Szpital 2.0" textAlignment="CENTER">
+                           <font>
+                              <Font name="Roboto" size="60.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <JFXTextField fx:id="loginField" layoutX="306.0" layoutY="212.0" promptText="Login">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton fx:id="signInButton" buttonType="RAISED" layoutX="357.0" layoutY="369.0" onAction="#signIn" ripplerFill="#0fbfff" style="-fx-background-color: #20866F;" text="LECIMY">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXPasswordField fx:id="passwordField" layoutX="309.0" layoutY="293.0" promptText="Hasło">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </JFXPasswordField>
+                  <JFXBadge layoutX="211.0" layoutY="212.0" />
+               </children>
+            </AnchorPane>
+      </content>
+    </Tab>
+      <Tab id="LoginTab" fx:id="patientTab" closable="false" text="Pacjent">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #63BAA7; -fx-border-width: 0;">
+               <children>
+                  <HBox alignment="CENTER" layoutY="-2.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="102.0" prefWidth="800.0" style="-fx-background-color: #3C9B86;">
+                     <children>
+                        <Label fx:id="patientHeadLabel" text="Anna Kowalska" textAlignment="CENTER">
+                           <font>
+                              <Font name="Roboto" size="60.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <JFXBadge layoutX="211.0" layoutY="212.0" />
+                  <JFXTreeTableView fx:id="patientTableView" currentItemsCount="5" fixedCellSize="0.0" layoutX="50.0" layoutY="130.0" maxHeight="400.0" maxWidth="700.0" minHeight="400.0" minWidth="700.0" prefHeight="400.0" prefWidth="700.0">
+                     <columnResizePolicy>
+                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy></JFXTreeTableView>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab id="LoginTab" fx:id="doctorTab" closable="false" text="Lekarz">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #63BAA7; -fx-border-width: 0;">
+               <children>
+                  <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #3C9B86;">
+                     <children>
+                        <Label fx:id="doctorHeadLabel" text="Dr Akula" textAlignment="CENTER">
+                           <font>
+                              <Font name="Roboto" size="60.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <TabPane fx:id="doctorPane" layoutY="100.0" prefHeight="501.0" prefWidth="800.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab fx:id="doctorMainTab" closable="false" style="visibility: hidden;" text="Pacjenci">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <JFXTreeTableView fx:id="patientsTableView" currentItemsCount="5" fixedCellSize="0.0" layoutX="50.0" layoutY="77.0" maxHeight="400.0" maxWidth="330.0" minHeight="344.0" minWidth="330.0" prefHeight="344.0" prefWidth="330.0">
+                                       <columnResizePolicy>
+                                          <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </JFXTreeTableView>
+                                    <Label fx:id="patientNameLabel" alignment="CENTER" layoutX="431.0" layoutY="177.0" prefHeight="44.0" prefWidth="302.0" text="Dobry ziomek" textAlignment="CENTER" textOverrun="CLIP">
+                                       <font>
+                                          <Font name="Roboto" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXTreeTableView fx:id="PatientInfoTableView" currentItemsCount="5" fixedCellSize="0.0" layoutX="433.0" layoutY="241.0" maxHeight="180.0" maxWidth="300.0" minHeight="180.0" minWidth="300.0" prefHeight="180.0" prefWidth="300.0">
+                                       <columnResizePolicy>
+                                          <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </JFXTreeTableView>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="530.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/haremXD.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <JFXButton fx:id="newPatientButton" buttonType="RAISED" layoutX="148.0" layoutY="21.0" onAction="#newPatientStart" ripplerFill="#0fbfff" style="-fx-background-color: #20866F;" text="Nowy pacjent">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton fx:id="refreshDoctorButton" buttonType="RAISED" layoutX="169.0" layoutY="421.0" onAction="#newPatientStart" ripplerFill="#0fbfff" style="-fx-background-color: #20866F;" text="Odśwież">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children></AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab fx:id="doctorPatientTab" closable="false" style="visibility: hidden;" text="Pacjent">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <JFXTreeTableView fx:id="doctorLogsTableView" currentItemsCount="5" fixedCellSize="0.0" layoutX="50.0" layoutY="58.0" maxHeight="400.0" maxWidth="700.0" minHeight="388.0" minWidth="700.0" prefHeight="388.0" prefWidth="700.0">
+                                       <columnResizePolicy>
+                                          <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </JFXTreeTableView>
+                                    <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="14.0" onAction="#signIn" ripplerFill="#0fbfff" style="-fx-background-color: #20866F;" text="DODAJ WPIS">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton fx:id="doctorPatientGoBackButton" buttonType="RAISED" layoutX="375.0" layoutY="14.0" prefHeight="29.0" prefWidth="50.0" ripplerFill="#0fbfff" style="-fx-background-color: #20866F;" text="⬅ " textAlignment="CENTER">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="doctorNewPatientTab" closable="false" text="Pacjent">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="385.0" prefWidth="800.0">
+                                 <children>
+                                    <JFXButton fx:id="newPatientGoBackButton" buttonType="RAISED" layoutX="375.0" layoutY="14.0" prefHeight="29.0" prefWidth="50.0" ripplerFill="#0fbfff" style="-fx-background-color: #20866F;" text="⬅ " textAlignment="CENTER">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXTextArea layoutX="114.0" layoutY="193.0" prefHeight="190.0" prefWidth="572.0" promptText="Wprowadź opis..." style="-fx-background-color: #99DBCC;">
+                                       <font>
+                                          <Font name="Roboto" size="12.0" />
+                                       </font></JFXTextArea>
+                                    <JFXTextField fx:id="NPFieldPESEL1" layoutX="250.0" layoutY="115.0" prefHeight="25.0" prefWidth="150.0" promptText="Imię i nazwisko">
+                                       <font>
+                                          <Font name="Roboto" size="17.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXTextField fx:id="NPFieldPESEL" layoutX="114.0" layoutY="115.0" prefHeight="25.0" prefWidth="115.0" promptText="PESEL">
+                                       <font>
+                                          <Font name="Roboto" size="17.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXDatePicker layoutX="566.0" layoutY="119.0" maxWidth="150.0" minWidth="120.0" prefWidth="120.0" />
+                                    <JFXTextField fx:id="NPFieldPESEL11" layoutX="474.0" layoutY="18.0" prefHeight="25.0" prefWidth="130.0" promptText="Dolegliwość">
+                                       <font>
+                                          <Font name="Roboto" size="17.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <HBox fx:id="autocompleteHBox" layoutX="417.0" layoutY="121.0" prefHeight="34.0" prefWidth="130.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="newLogGoBackButton" closable="false" text="Pacjent">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="385.0" prefWidth="800.0">
+                                 <children>
+                                    <JFXTextField layoutX="169.0" layoutY="75.0" />
+                                    <JFXTextField layoutX="169.0" layoutY="138.0" />
+                                    <JFXTextField layoutX="169.0" layoutY="203.0" />
+                                    <JFXTextArea layoutX="169.0" layoutY="264.0" />
+                                    <JFXButton fx:id="LogGoBackButton" buttonType="RAISED" layoutX="375.0" layoutY="14.0" prefHeight="29.0" prefWidth="50.0" ripplerFill="#0fbfff" style="-fx-background-color: #20866F;" text="⬅ " textAlignment="CENTER">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab id="LoginTab" fx:id="SingInTab111" closable="false" text="Ordynator">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="542.0" minWidth="800.0" prefHeight="576.0" prefWidth="800.0" style="-fx-background-color: #63BAA7; -fx-border-width: 0;">
+               <children>
+                  <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #3C9B86;">
+                     <children>
+                        <Label text="Twój Szpital 2.0" textAlignment="CENTER">
+                           <font>
+                              <Font name="Roboto" size="60.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <JFXTextField layoutX="306.0" layoutY="212.0" promptText="Login">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton buttonType="RAISED" layoutX="357.0" layoutY="369.0" ripplerFill="#0fbfff" style="-fx-background-color: #20866F;" text="LECIMY">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXPasswordField layoutX="309.0" layoutY="293.0" promptText="Hasło">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </JFXPasswordField>
+                  <JFXBadge layoutX="211.0" layoutY="212.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

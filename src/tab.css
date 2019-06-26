@@ -1,0 +1,21 @@
+.tab-pane {
+    -fx-tab-max-height: 0;
+
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #3C9B86;
+
+}
+.tab-pane .tab
+{
+    -fx-background-color: #3C9B86;
+
+}/*.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color:  #3C9B86;
+}
+
+.tab-pane .tab-header-area {
+     visibility: hidden ;
+    -fx-background-color:  #3C9B86;
+}
